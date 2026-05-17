@@ -7,6 +7,7 @@ API_KEY = "cce99ea13ea362d5e7a55d1bff1a654c"
 
 @app.route("/", methods=["GET", "POST"])
 def home():
+
     weather = None
 
     if request.method == "POST":
@@ -21,8 +22,9 @@ def home():
             weather = {
                 "city": data["name"],
                 "temp": data["main"]["temp"],
-                "humidity": data["main"]["humidity"],
                 "description": data["weather"][0]["description"],
+                "humidity": data["main"]["humidity"],
+                "wind": data["wind"]["speed"],
                 "icon": data["weather"][0]["icon"]
             }
 
